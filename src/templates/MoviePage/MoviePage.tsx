@@ -7,15 +7,15 @@ import MoviePageView from "./MoviePageView/MoviePageView";
 
 const MoviePage = () => {
   const {
-    location: { state },
+    location: { search },
   } = useHistory<any>();
   const movie = useTypedSelector(({ movies: { movie } }) => movie);
-  const titleid: number = state.titleid;
 
   const { fetchTopHorrorMovie } = useActions();
-
+  const movieIDstr = search.split("=");
+  const movieID = +movieIDstr[movieIDstr.length - 1];
   useEffect(() => {
-    fetchTopHorrorMovie(titleid);
+    fetchTopHorrorMovie(movieID);
   }, []);
 
   let uiMovie = <Spinner />;

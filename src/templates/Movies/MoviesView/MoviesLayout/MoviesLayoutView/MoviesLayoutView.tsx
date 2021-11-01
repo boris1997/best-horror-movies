@@ -57,9 +57,7 @@ const MoviesLayoutView: FC<IMoviesLayoutView> = ({
                       <Link
                         to={{
                           pathname: `/${title}`,
-                          state: {
-                            titleid: id,
-                          },
+                          search: `?movie_id=${id}`,
                         }}
                       >
                         {title}
@@ -82,9 +80,7 @@ const MoviesLayoutView: FC<IMoviesLayoutView> = ({
                     <Link
                       to={{
                         pathname: `/${title}`,
-                        state: {
-                          titleid: id,
-                        },
+                        search: `?movie_id=${id}`,
                       }}
                     >
                       leave comment
