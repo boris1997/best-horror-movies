@@ -15,6 +15,7 @@ const MoviePage = () => {
   const movieIDstr = search.split("=");
   const movieID = +movieIDstr[movieIDstr.length - 1];
   useEffect(() => {
+    console.log(movieID);
     fetchTopHorrorMovie(movieID);
   }, []);
 

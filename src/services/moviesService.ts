@@ -19,7 +19,7 @@ export const getTopHorrorMovies = async (limit: number, quality: string, sort_by
 export const getTopHorrorMovie = async (movie_id: number): Promise<AxiosResponse<IMovieResponse>> => {
 
 
-    return $host.get(`/movie_details.json/`, {
+    return $host.get(`/movie_details.json`, {
         params: {
             movie_id
         }
