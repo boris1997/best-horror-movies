@@ -22,7 +22,7 @@ const reducer = (
         case MoviesActionTypes.SET_MOVIES:
             return { ...state, movies: action.movies, amount: action.movie_count, page: action.page };
         case MoviesActionTypes.SET_MOVIE:
-            return { ...state, movie: action.movie };
+            return { ...state, movie: { ...state.movie, ...action.movie } };
 
         default:
             return state;
