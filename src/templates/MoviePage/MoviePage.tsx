@@ -10,7 +10,6 @@ const MoviePage = () => {
     location: { search },
   } = useHistory<any>();
   const movie = useTypedSelector(({ movies: { movie } }) => movie);
-  console.log(search);
   const { fetchTopHorrorMovie } = useActions();
   const movieIDstr = search.split("=");
   const movieID = +movieIDstr[movieIDstr.length - 1];
