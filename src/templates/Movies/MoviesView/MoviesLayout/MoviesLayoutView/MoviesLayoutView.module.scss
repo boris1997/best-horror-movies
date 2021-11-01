@@ -5,8 +5,6 @@
 }
 
 .item {
-  // padding-left: 7px;
-  //   box-shadow: $box-shadow;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -17,6 +15,8 @@
   transition: transform 0.2s ease-in-out;
   transform: translateY(-100%);
   background-color: $secColor;
+  @include flexbox(column, center, center);
+
   opacity: 0.9;
 }
 
@@ -53,6 +53,7 @@
 .item:last-child {
   margin-bottom: 10px;
 }
+
 .wishListBody,
 .priceBody,
 .counter {
@@ -100,6 +101,12 @@
   text-align: left;
 }
 
+.comment {
+  a {
+    font-weight: 500;
+  }
+}
+
 .movieRating {
   flex: 0.4;
   > div:first-child {
@@ -119,13 +126,6 @@
     margin-right: 4px;
   }
 }
-.titleBody {
-  flex-basis: 100%; // flex: 1;
-  > h2 {
-    font-size: 16px;
-    text-align: left;
-  }
-}
 
 .priceBody,
 .titleBody {
@@ -143,10 +143,6 @@
     margin-inline: 20px;
   }
 }
-
-/* .wishListBody {
-  order: 3;
-} */
 
 @media (min-width: $small-breakpoint) {
   .itemImg {
@@ -180,9 +176,6 @@
     margin-left: 20px;
   }
 
-  .priceBody {
-  }
-
   .itemImg {
     img {
       width: 90px;
@@ -208,21 +201,8 @@
 }
 
 @media (min-width: $large-breakpoint) {
-  /*   .itemBody {
-    a {
-      font-size: 18px;
-    }
-    span {
-      font-size: 20px;
-    }
-  }
- */
   .itemBody {
     margin-left: 25px;
-  }
-
-  .header {
-    // height: 200px;
   }
 
   .itemImg {
@@ -244,11 +224,4 @@
       font-size: 28px;
     }
   }
-
-  .bodyWrapper {
-    max-width: 265px;
-  }
-  // h1 {
-  //   font-size: 50px;
-  // }
 }
