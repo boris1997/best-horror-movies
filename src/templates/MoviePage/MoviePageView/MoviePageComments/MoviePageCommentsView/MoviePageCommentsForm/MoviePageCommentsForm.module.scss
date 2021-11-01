@@ -1,4 +1,7 @@
+@import "styles/vars&mixins.scss";
+
 .form {
+  margin-top: 20px;
   font-size: var(--p-fs);
   label {
     margin-bottom: 10px;
@@ -7,5 +10,11 @@
     float: left;
     margin-top: 20px;
     padding-inline: 10px;
+  }
+  @media (min-width: $small-breakpoint) {
+    margin-top: 30px;
+  }
+  @media (min-width: $medium-breakpoint) {
+    margin-top: 40px;
   }
 }
