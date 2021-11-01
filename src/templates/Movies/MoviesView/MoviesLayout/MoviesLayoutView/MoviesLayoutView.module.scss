@@ -1,0 +1,254 @@
+@import "styles/vars&mixins.scss";
+
+.content {
+  @include flexbox(column, space-between, stretch);
+}
+
+.item {
+  // padding-left: 7px;
+  //   box-shadow: $box-shadow;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.invisible {
+  @include position(absolute, "", 0, 0, 0, 0, auto);
+  transition: transform 0.2s ease-in-out;
+  transform: translateY(-100%);
+  background-color: $secColor;
+  opacity: 0.9;
+}
+
+.invisible,
+.hideIcon {
+  font-size: var(--p-fs);
+}
+
+.invisible.unactive {
+  transform: translateY(0%);
+}
+
+.item + .item {
+  margin-top: 30px;
+}
+
+.itemMain {
+  @include flexbox(row, space-between, stretch);
+}
+
+.itemMain.unactive {
+  opacity: 0.7;
+}
+
+.itemImg {
+  z-index: -2;
+  display: flex;
+  align-items: center;
+  img {
+    width: 55px;
+  }
+}
+
+.item:last-child {
+  margin-bottom: 10px;
+}
+.wishListBody,
+.priceBody,
+.counter {
+  margin-top: 10px;
+}
+
+.itemBody {
+  margin-left: 10px;
+  flex: 1;
+  @include flexbox(row, baseline, center);
+  flex-wrap: wrap;
+  // flex-wrap: wrap;
+  /*   > div:first-child {
+    flex: 0.5;
+  } */
+}
+.hideIcon {
+  cursor: pointer;
+  flex: 0.1;
+  margin-left: auto;
+  @include flexbox(column, center, center);
+  div {
+    color: $unactiveColor;
+  }
+  svg {
+    height: 30px;
+    float: right;
+  }
+  path {
+    fill: $unactiveColor;
+  }
+}
+
+.movieData {
+  flex: 0.8;
+  font-size: var(--p-fs);
+  @include flexbox(column, flex-start, flex-start);
+  > div + div {
+    margin-top: 4px;
+  }
+}
+
+.titleBody {
+  font-weight: 700;
+  text-align: left;
+}
+
+.movieRating {
+  flex: 0.4;
+  > div:first-child {
+    font-size: 12px;
+  }
+  > div:last-child {
+    margin-top: 5px;
+    font-size: 20px;
+  }
+}
+
+.genres {
+  ul {
+    flex-wrap: wrap;
+  }
+  li {
+    margin-right: 4px;
+  }
+}
+.titleBody {
+  flex-basis: 100%; // flex: 1;
+  > h2 {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+.priceBody,
+.titleBody {
+  display: flex;
+}
+
+.goBack {
+  cursor: pointer;
+  @include flexbox(column, flex-start, center);
+  margin-bottom: 10px;
+}
+
+.invisible {
+  span {
+    margin-inline: 20px;
+  }
+}
+
+/* .wishListBody {
+  order: 3;
+} */
+
+@media (min-width: $small-breakpoint) {
+  .itemImg {
+    img {
+      width: 70px;
+    }
+  }
+
+  .itemBody {
+    margin-left: 15px;
+  }
+
+  .movieRating {
+    > div:first-child {
+      font-size: 13px;
+    }
+    > div:last-child {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .items {
+    flex: 0.9;
+  }
+  .content {
+    flex-direction: row;
+  }
+  .itemBody {
+    margin-left: 20px;
+  }
+
+  .priceBody {
+  }
+
+  .itemImg {
+    img {
+      width: 90px;
+    }
+  }
+  .hideIcon {
+    svg {
+      height: 35px;
+    }
+  }
+
+  .movieRating {
+    > div:first-child {
+      font-size: 14px;
+    }
+    > div:last-child {
+      font-size: 25px;
+    }
+  }
+}
+
+@media (min-width: $medium-breakpoint) {
+}
+
+@media (min-width: $large-breakpoint) {
+  /*   .itemBody {
+    a {
+      font-size: 18px;
+    }
+    span {
+      font-size: 20px;
+    }
+  }
+ */
+  .itemBody {
+    margin-left: 25px;
+  }
+
+  .header {
+    // height: 200px;
+  }
+
+  .itemImg {
+    img {
+      width: 110px;
+    }
+  }
+
+  .hideIcon {
+    svg {
+      height: 40px;
+    }
+  }
+  .movieRating {
+    > div:first-child {
+      font-size: 15px;
+    }
+    > div:last-child {
+      font-size: 28px;
+    }
+  }
+
+  .bodyWrapper {
+    max-width: 265px;
+  }
+  // h1 {
+  //   font-size: 50px;
+  // }
+}

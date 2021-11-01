@@ -1,0 +1,255 @@
+@import "styles/vars&mixins.scss";
+
+.content {
+  @include flexbox(column, space-between, stretch);
+}
+
+// .body {
+//     display: grid;
+//     grid-template-areas:
+//       "cover cover"
+//       "mainInfo mainInfo"
+//       "mainInfo mainInfo"
+//       "description description";
+//     grid-gap: 10px;
+//     grid-template-columns: 1fr 1fr;
+// }
+.body {
+  display: grid;
+  grid-template-areas:
+    "cover cover"
+    "title title"
+    "mainInfo mainInfo"
+    "description description";
+  grid-gap: 10px;
+  grid-template-columns: 0.2fr 1.8fr;
+}
+
+.cover {
+  grid-area: cover;
+  margin: auto;
+}
+.title {
+  grid-area: title;
+}
+.mainInfo {
+  grid-area: mainInfo;
+}
+.description {
+  text-align: justify;
+  grid-area: description;
+}
+
+.item + .item {
+  margin-top: 30px;
+}
+
+.itemMain {
+  @include flexbox(row, space-between, stretch);
+}
+
+.itemMain.unactive {
+  opacity: 0.7;
+}
+
+.cover {
+  z-index: -2;
+  display: flex;
+  align-items: center;
+  img {
+    width: 150px;
+  }
+}
+
+.item:last-child {
+  margin-bottom: 10px;
+}
+.wishListBody,
+.priceBody,
+.counter {
+  margin-top: 10px;
+}
+
+.mainInfo {
+  flex: 1;
+  @include flexbox(row, space-between, flex-start);
+  gap: 5px;
+}
+.hideIcon {
+  cursor: pointer;
+  flex: 0.1;
+  margin-left: auto;
+  @include flexbox(column, center, center);
+  div {
+    color: $unactiveColor;
+  }
+  svg {
+    height: 30px;
+    float: right;
+  }
+  path {
+    fill: $unactiveColor;
+  }
+}
+
+.movieData {
+  font-size: var(--p-fs);
+  @include flexbox(column, flex-start, flex-start);
+  > div + div {
+    margin-top: 4px;
+  }
+}
+
+.titleBody {
+  font-weight: 700;
+  text-align: left;
+}
+
+.movieRating {
+  > div:first-child {
+    font-size: 12px;
+  }
+  > div:last-child {
+    margin-top: 5px;
+    font-size: 20px;
+  }
+}
+
+.genres {
+  text-align: start;
+}
+.titleBody {
+  flex-basis: 100%; // flex: 1;
+  > h2 {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+.priceBody,
+.titleBody {
+  display: flex;
+}
+
+.goBack {
+  cursor: pointer;
+  @include flexbox(column, flex-start, center);
+  margin-bottom: 10px;
+}
+
+.invisible {
+  span {
+    margin-inline: 20px;
+  }
+}
+
+/* .wishListBody {
+  order: 3;
+} */
+
+@media (min-width: $small-breakpoint) {
+  /*   .cover {
+    img {
+      width: 150px;
+    }
+  } */
+  .body {
+    display: grid;
+    grid-template-areas:
+      "cover title"
+      "cover mainInfo"
+      "cover mainInfo"
+      "cover mainInfo"
+      "description description";
+    grid-gap: 15px;
+    grid-template-columns: 0.2fr 1.8fr;
+  }
+  .title {
+    text-align: left;
+  }
+
+  .movieData {
+    justify-content: space-between;
+    > div + div {
+      margin-top: 15px;
+    }
+  }
+
+  .movieRating {
+    > div:first-child {
+      font-size: 13px;
+    }
+    > div:last-child {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .items {
+    flex: 0.9;
+  }
+  .content {
+    flex-direction: row;
+  }
+
+  .body {
+    grid-gap: 20px;
+  }
+
+  .priceBody {
+  }
+
+  .cover {
+    img {
+      width: 190px;
+    }
+  }
+  .hideIcon {
+    svg {
+      height: 35px;
+    }
+  }
+
+  .movieRating {
+    > div:first-child {
+      font-size: 14px;
+    }
+    > div:last-child {
+      font-size: 25px;
+    }
+  }
+}
+
+@media (min-width: $medium-breakpoint) {
+}
+
+@media (min-width: $large-breakpoint) {
+  .body {
+    grid-gap: 25px;
+  }
+
+  .cover {
+    img {
+      width: initial;
+    }
+  }
+
+  .hideIcon {
+    svg {
+      height: 40px;
+    }
+  }
+  .movieRating {
+    > div:first-child {
+      font-size: 15px;
+    }
+    > div:last-child {
+      font-size: 28px;
+    }
+  }
+
+  .bodyWrapper {
+    max-width: 265px;
+  }
+}

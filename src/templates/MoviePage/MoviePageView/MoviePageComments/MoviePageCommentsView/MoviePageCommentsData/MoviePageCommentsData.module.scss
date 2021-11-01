@@ -1,0 +1,32 @@
+@import "styles/vars&mixins.scss";
+
+.comments {
+  margin-bottom: 50px;
+  font-size: var(--p-fs);
+}
+
+.comment {
+  @include flexbox(row, space-between, baseline);
+  svg {
+    cursor: pointer;
+  }
+}
+
+.commentItem {
+  @include flexbox(column, flex-start, baseline);
+}
+
+.comment + .comment {
+  margin-top: 20px;
+}
+
+.text {
+  margin-top: 10px;
+  div,
+  p {
+    text-align: left;
+  }
+  p {
+    margin-top: 5px;
+  }
+}
