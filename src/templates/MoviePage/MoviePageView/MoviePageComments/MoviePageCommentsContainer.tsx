@@ -70,6 +70,7 @@ const MoviePageCommentsContainer = () => {
   if (
     Object.keys(commentData).length !== 0 &&
     movieid &&
+    commentData[movieid] &&
     commentData[movieid].length > 0
   ) {
     commentsUI = (
